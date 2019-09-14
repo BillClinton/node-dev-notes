@@ -48,7 +48,8 @@ yargs.command({
   command: 'list',
   describe: 'List notes',
   handler() {
-    console.log('Listing notes');
+    console.log(chalk.blue('Notes:'));
+    notes.listNotes();
   }
 });
 
