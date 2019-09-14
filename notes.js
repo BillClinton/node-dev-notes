@@ -41,6 +41,18 @@ const listNotes = () => {
   });
 };
 
+const readNote = title => {
+  const notes = loadNotes();
+  const note = notes.find(note => note.title === title);
+
+  if (note) {
+    console.log(chalk.blue(note.title));
+    console.log(chalk.white(note.body));
+  } else {
+    console.log(chalk.red('Note not found.'));
+  }
+};
+
 const loadNotes = () => {
   try {
     const dataBuffer = fs.readFileSync('notes.json');
@@ -60,5 +72,6 @@ module.exports = {
   getNotes,
   addNote,
   deleteNote,
-  listNotes
+  listNotes,
+  readNote
 };
